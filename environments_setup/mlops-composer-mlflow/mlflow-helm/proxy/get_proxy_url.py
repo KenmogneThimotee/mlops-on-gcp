@@ -94,7 +94,7 @@ def main():
 
   for url in urls:
     try:
-      status_code = requests.head(url).status_code
+      status_code = requests.head(url, timeout=60).status_code
     except requests.ConnectionError:
       pass
     expected_codes = frozenset([307])
