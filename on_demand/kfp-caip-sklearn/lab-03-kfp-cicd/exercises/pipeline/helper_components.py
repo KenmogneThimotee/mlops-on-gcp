@@ -13,6 +13,7 @@
 """Helper components."""
 
 from typing import NamedTuple
+import fickling
 
 
 def retrieve_best_run(
@@ -52,8 +53,6 @@ def evaluate_model(
 ) -> NamedTuple('Outputs', [('metric_name', str), ('metric_value', float),
                             ('mlpipeline_metrics', 'Metrics')]):
   """Evaluates a trained sklearn model."""
-  #import joblib
-  import pickle
   import json
   import pandas as pd
   import subprocess
@@ -74,7 +73,7 @@ def evaluate_model(
                         stderr=sys.stdout)
 
   with open(model_filename, 'rb') as model_file:
-    model = pickle.load(model_file)
+    model = fickling.load(model_file)
 
   y_hat = model.predict(X_test)
 
