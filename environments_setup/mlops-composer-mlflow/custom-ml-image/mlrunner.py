@@ -20,6 +20,7 @@ import os
 import sys
 import time  
 import json
+from security import safe_command
 
 def upload_to_gcs(local, uri):
     pid=subprocess.Popen(['gsutil', '-q', 'cp', local, uri])
@@ -37,7 +38,7 @@ def install_package(package):
     print('Installed package: {}'.format(package))
 
 def run_trainer(module, trainer_args):
-    pid=subprocess.Popen(['python3', '-m', module] + trainer_args)
+    pid=safe_command.run(subprocess.Popen, ['python3', '-m', module] + trainer_args)
     pid.wait()
     print('Training finished: {}'.format(module))
 
