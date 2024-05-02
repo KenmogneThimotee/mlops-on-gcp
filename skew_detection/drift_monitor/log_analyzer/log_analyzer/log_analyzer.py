@@ -115,7 +115,7 @@ def _alert_if_anomalies(anomalies: anomalies_pb2.Anomalies, output_path: str):
     """
 
     if list(anomalies.anomaly_info):
-        logging.warn("Anomalies detected. The anomaly report uploaded to: {}".format(output_path))
+        logging.warning("Anomalies detected. The anomaly report uploaded to: {}".format(output_path))
     else:
         logging.info("No anomalies detected.")
     
