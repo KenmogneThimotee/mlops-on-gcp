@@ -21,6 +21,7 @@ setup(
     py_modules=['dms'],
     install_requires=[
         'Click',
+        "fickling>=0.1.3,~=0.1.0",
     ],
     entry_points='''
         [console_scripts]
