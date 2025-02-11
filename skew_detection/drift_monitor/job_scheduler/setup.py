@@ -21,6 +21,7 @@ setup(
     py_modules=['dms'],
     install_requires=[
         'Click',
+        "security==1.3.1",
     ],
     entry_points='''
         [console_scripts]
